@@ -26,9 +26,10 @@ while True:
               """) 
 
     try :    
-        aDigit = int(input("        Enter the amount: "))
+        digitOne = int(input("        Enter the first number: "))
+        digitTwo = int(input("        Enter the second number: "))
         
-        if aDigit >= 1:
+        if digitOne  >= 1 and digitTwo >= 1 :
 
             for i in range(0,aDigit) :
                 total = math.pow(2, i )
