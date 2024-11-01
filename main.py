@@ -1,16 +1,8 @@
-#Escriba un programa que muestre la tabla de multiplicar del 1 al 10 del número ingresado por el usuario:
+#Escriba un programa que genere todas las potencias de 2,
+#desde la 0-ésima hasta la ingresada por el usuario:
 #
-#Ingrese un numero: 9
-#9 x 1 = 9
-#9 x 2 = 18
-#9 x 3 = 27
-#9 x 4 = 36
-#9 x 5 = 45
-#9 x 6 = 54
-#9 x 7 = 63
-#9 x 8 = 72
-#9 x 9 = 81
-#9 x 10 = 90
+#Ingrese num: 10
+#1 2 4 8 16 32 64 128 256 512 1024
 
 import math
 
@@ -29,17 +21,21 @@ name = input("    Hello, please enter your full name:  ")
 while True:
 
     print(f""" \n
-        Welcome back Mr/Ms {name}, this is a program for calculate the multiplication table.
+        Welcome back Mr/Ms {name}, this is a program for calculate the potentiation of the number 2.
               """) 
 
     try :    
-
-        aDigit = int(input("        Enter a number: "))
-        for i in range(1,11) :
-            total = aDigit * i
-            
-            print(f"        {aDigit} X {i} = {total}")
+        aDigit = int(input("        Enter the amount: "))
         
+        if aDigit >= 1:
+
+            for i in range(0,aDigit) :
+                total = math.pow(2, i )
+                
+                print(f"        {round(total)}")
+        else:        
+            print ("\n        Positive numbers only")
+
       #  if not (aSide + bSide > cSide and aSide + cSide > bSide and bSide + cSide > aSide):
        #     raise ValueError("") #posiblemente lo use mas tarde
        
