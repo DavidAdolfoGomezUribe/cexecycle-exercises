@@ -22,28 +22,45 @@ name = input("    Hello, please enter your full name:  ")
 while True:
 
     print(f""" \n
-        Welcome back Mr/Ms {name}, this is a program for calculate the sum of the number of numbers between  the first and the second number:""") 
+        Welcome back Mr/Ms {name}, this is a program for calculate a two multiplication tables from 1 to 10:""") 
 
     try :    
-        digitOne = int(input("\n        Enter the first number: "))
-        digitTwo = int(input("        Enter the second number: "))
-        total = []
         
+        numberOne = int(input("        First table: "))
+        numberTwo = int(input("        Second table: "))
+        matrix = []
 
-        if digitOne  >= 0 and digitTwo >= 0 :
+        for i in range(1,11) : 
+            matrix.append(i + (numberOne - 1))
 
-            for i in range( (digitOne + 1),digitTwo) :
-               
-                total.append(i)
+        #Disclaimer: i use this two methods in order to see wich one adapts better for my porpuse, the firs one
+        #allows me to do more accurate enhancements  , the second one its a fast way to do a 10x10 table
+           
+        #First way:
+        print (f"\n        ", " ".join(str(num).rjust(3) for num in matrix),
+              "\n        ", " ".join(str(2*num).rjust(3) for num in matrix),
+              "\n        ", " ".join(str(3*num).rjust(3) for num in matrix),
+              "\n        ", " ".join(str(4*num).rjust(3) for num in matrix),
+              "\n        ", " ".join(str(5*num).rjust(3) for num in matrix),
+              "\n        ", " ".join(str(6*num).rjust(3) for num in matrix),
+              "\n        ", " ".join(str(7*num).rjust(3) for num in matrix),
+              "\n        ", " ".join(str(8*num).rjust(3) for num in matrix),
+              "\n        ", " ".join(str(9*num).rjust(3) for num in matrix),
+              "\n        ", " ".join(str(10*num).rjust(3) for num in matrix),"\n"
+            )
+        
+        #Second way:
+        for multiplier in range(1, 11):
+            print(f"        ", " ".join(str((( numberTwo )  * multiplier ) ).rjust(3) for numberTwo in matrix))
 
-            rTotal = str(sum(total))
-            print(f"\n        The sum of the number of numbers between {digitOne} and {digitTwo} is equal to" , " + ".join(map(str,total)) , "=",rTotal )
+
+        #so, in both cases i get the correct tables , the only thing is becareful in wich side i put
+        #the variables (numberOne and numberTwo)
             
             
             
         
-        else:        
-            print ("\n        Positive numbers only")
+        
 
       #  if not (aSide + bSide > cSide and aSide + cSide > bSide and bSide + cSide > aSide):
        #     raise ValueError("") #posiblemente lo use mas tarde
