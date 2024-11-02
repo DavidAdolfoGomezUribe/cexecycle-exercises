@@ -22,19 +22,26 @@ name = input("    Hello, please enter your full name:  ")
 while True:
 
     print(f""" \n
-        Welcome back Mr/Ms {name}, this is a program for calculate the potentiation of the number 2.
-              """) 
+        Welcome back Mr/Ms {name}, this is a program for calculate the sum of the number of numbers between  the first and the second number:""") 
 
     try :    
-        digitOne = int(input("        Enter the first number: "))
+        digitOne = int(input("\n        Enter the first number: "))
         digitTwo = int(input("        Enter the second number: "))
+        total = []
         
-        if digitOne  >= 1 and digitTwo >= 1 :
 
-            for i in range(0,aDigit) :
-                total = math.pow(2, i )
-                
-                print(f"        {round(total)}")
+        if digitOne  >= 0 and digitTwo >= 0 :
+
+            for i in range( (digitOne + 1),digitTwo) :
+               
+                total.append(i)
+
+            rTotal = str(sum(total))
+            print(f"\n        The sum of the number of numbers between {digitOne} and {digitTwo} is equal to" , " + ".join(map(str,total)) , "=",rTotal )
+            
+            
+            
+        
         else:        
             print ("\n        Positive numbers only")
 
