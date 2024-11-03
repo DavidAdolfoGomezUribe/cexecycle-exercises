@@ -1,10 +1,8 @@
-#Escriba un programa que pida al usuario dos números enteros, y luego entregue la suma de todos los números que están entre ellos.
-#Por ejemplo, si los números son 1 y 7, debe entregar como resultado 2 + 3 + 4 + 5 + 6 = 20.
+#Escriba un programa que entregue todos los divisores del número entero ingresado:
 #
-#Ingrese num: 1
-#Ingrese num: 7
-#La suma es 20
-#
+#Ingrese numero: 200
+#1 2 4 5 8 10 20 25 40 50 100 200
+
 import math
 
 
@@ -22,40 +20,36 @@ name = input("    Hello, please enter your full name:  ")
 while True:
 
     print(f""" \n
-        Welcome back Mr/Ms {name}, this is a program for calculate a two multiplication tables from 1 to 10:""") 
+        Welcome back Mr/Ms {name}, this is a program for calculate all the divisors of the entered integer """) 
+
 
     try :    
         
-        numberOne = int(input("        First table: "))
-        numberTwo = int(input("        Second table: "))
+        numberOne = int(input("        Insert the number: "))
+        
         matrix = []
 
-        for i in range(1,11) : 
-            matrix.append(i + (numberOne - 1))
+        if numberOne == 0 :
+            print("\n        Division by zero cant be possible")
 
-        #Disclaimer: i use this two methods in order to see wich one adapts better for my porpuse, the firs one
-        #allows me to do more accurate enhancements  , the second one its a fast way to do a 10x10 table
-           
-        #First way:
-        print (f"\n        ", " ".join(str(num).rjust(3) for num in matrix),
-              "\n        ", " ".join(str(2*num).rjust(3) for num in matrix),
-              "\n        ", " ".join(str(3*num).rjust(3) for num in matrix),
-              "\n        ", " ".join(str(4*num).rjust(3) for num in matrix),
-              "\n        ", " ".join(str(5*num).rjust(3) for num in matrix),
-              "\n        ", " ".join(str(6*num).rjust(3) for num in matrix),
-              "\n        ", " ".join(str(7*num).rjust(3) for num in matrix),
-              "\n        ", " ".join(str(8*num).rjust(3) for num in matrix),
-              "\n        ", " ".join(str(9*num).rjust(3) for num in matrix),
-              "\n        ", " ".join(str(10*num).rjust(3) for num in matrix),"\n"
-            )
+
+        if numberOne > 0 :   
+            for i in range(1, numberOne + 1):
+                if numberOne % i == 0:
+                    matrix.append(i)
+
+            print (f"\n        The numbers that are divisors of {numberOne} are : ", " ".join(str(num).rjust(1) for num in matrix))
         
-        #Second way:
-        for multiplier in range(1, 11):
-            print(f"        ", " ".join(str((( numberTwo )  * multiplier ) ).rjust(3) for numberTwo in matrix))
+        if numberOne < 0 :   
+            for i in range( 1,((abs(numberOne)) + 1)  ):
+                if numberOne % -i == 0:
+                    matrix.append(i)
 
-
-        #so, in both cases i get the correct tables , the only thing is becareful in wich side i put
-        #the variables (numberOne and numberTwo)
+            print (f"\n        The numbers that are divisors of {numberOne} are : ", " ".join(str(num).rjust(1) for num in matrix))
+        
+   
+        
+        
             
             
             
