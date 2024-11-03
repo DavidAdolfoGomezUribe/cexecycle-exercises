@@ -20,43 +20,30 @@ name = input("    Hello, please enter your full name:  ")
 while True:
 
     print(f""" \n
-        Welcome back Mr/Ms {name}, this is a program for calculate all the divisors of the entered integer """) 
+        Welcome back Mr/Ms {name}, this is a program for calculate the time in format Hours:Minuts based on the minuts that you put in for your travel: \n""") 
 
 
     try :    
-        
-        numberOne = int(input("        Insert the number: "))
-        
-        matrix = []
-
-        if numberOne == 0 :
-            print("\n        Division by zero cant be possible")
-
-
-        if numberOne > 0 :   
-            for i in range(1, numberOne + 1):
-                if numberOne % i == 0:
-                    matrix.append(i)
-
-            print (f"\n        The numbers that are divisors of {numberOne} are : ", " ".join(str(num).rjust(1) for num in matrix))
-        
-        if numberOne < 0 :   
-            for i in range( 1,((abs(numberOne)) + 1)  ):
-                if numberOne % -i == 0:
-                    matrix.append(i)
-
-            print (f"\n        The numbers that are divisors of {numberOne} are : ", " ".join(str(num).rjust(1) for num in matrix))
-        
-   
-        
-        
+        tTime = 0
+        while True:
+            time = 0
+            time = int(input("        Enter the minutes: "))
             
-            
-            
+            if time == 0:
+                break
+            elif time > 0:
+                tTime += time
+                
+                
+            else:
+                print("\n        Enter a valid time\n")
         
-        
+        tHours = tTime // 60
+        tMinuts = tTime % 60
 
-      #  if not (aSide + bSide > cSide and aSide + cSide > bSide and bSide + cSide > aSide):
+        print(f"\n        The time {time} in format HH:MM is {tHours}:{tMinuts} hours for your travel")
+        
+       #  if not (aSide + bSide > cSide and aSide + cSide > bSide and bSide + cSide > aSide):
        #     raise ValueError("") #posiblemente lo use mas tarde
        
          
