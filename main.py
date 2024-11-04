@@ -24,33 +24,40 @@ while True:
     try :    
         n = int(input(f"""        Select the number of iterations: """))
 
-
-        if n > 0 and n < 10000000:
-            
-            sLeibniz = 0
-            for i in range(n):
-                sLeibniz += ((-1) ** i) / (2 * i + 1)
-            
-            pi = 4 * sLeibniz
-            print(f"\n        {round(pi,11)}")
-
-        if n >= 10000000:
-                    
-            continueAsk = input( "\n        Maybe your PC can slow down after this number of iterations. Do you want to continue? (yes/no): " ).strip().lower()
-
-            if continueAsk == "yes" :
+        if n <= 0 :
+            print(f"\n        Positive numbers only") 
+        else:
+            if n > 0 and n < 10000000:
+                
                 sLeibniz = 0
                 for i in range(n):
                     sLeibniz += ((-1) ** i) / (2 * i + 1)
                 
                 pi = 4 * sLeibniz
                 print(f"\n        {round(pi,11)}")
+
             
+            elif n >= 10000000:
+                    
+                continueAsk = input( "\n        Maybe your PC can slow down after this number of iterations. Do you want to continue? (yes/no): " ).strip().lower()
+
+                if continueAsk == "yes" :
+                    sLeibniz = 0
+                    for i in range(n):
+                        sLeibniz += ((-1) ** i) / (2 * i + 1)
+                    
+                    pi = 4 * sLeibniz
+                    print(f"\n        {round(pi,11)}")
+                
+            
+
             else:
                 print(f"        use a lower number of iterations")   
-            
-        else:
-            print("\n    Positive number only")
+        
+    
+  
+    
+       
               
         
         continueAsk = input( "\n    Do you want to calculate again? (yes/no): " ).strip().lower()
