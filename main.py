@@ -1,7 +1,20 @@
-#Escriba un programa que entregue todos los divisores del número entero ingresado:
+#Desarrolle un programa que permita trabajar con las potencias fraccionales de dos, es decir:
 #
-#Ingrese numero: 200
-#1 2 4 5 8 10 20 25 40 50 100 200
+#12,14,18,116,132,164,…
+#en forma decimal:
+#
+#0.5,0.25,0.125,0.0625,0.03125,0.015625,…
+#El programa debe mostrar tres columnas que contengan la siguiente información:
+#
+#Potencia  Fraccion  Suma
+#1         0.5       0.5
+#2         0.25      0.75
+#3         0.125     0.875
+#4         0.0625    0.9375
+#...       ...       ...
+#El programa debe terminar cuando la fracción decimal sea menor o igual a 0.000001.
+
+
 
 import math
 
@@ -18,47 +31,29 @@ name = input("    Hello, please enter your full name:  ")
 while True:
 
     print(f""" \n
-        Welcome back Mr/Ms {name}, this is a program for calculate the aprox value of π using Leibniz series: \n""") 
+        Welcome back Mr/Ms {name}, this is a program that allows you to work with the fractional powers of two: \n""") 
         
 
     try :    
-        n = int(input(f"""        Select the number of iterations: """))
-
-        if n <= 0 :
-            print(f"\n        Positive numbers only") 
-        else:
-            if n > 0 and n < 10000000:
-                
-                sLeibniz = 0
-                for i in range(n):
-                    sLeibniz += ((-1) ** i) / (2 * i + 1)
-                
-                pi = 4 * sLeibniz
-                print(f"\n        {round(pi,11)}")
-
-            
-            elif n >= 10000000:
-                    
-                continueAsk = input( "\n        Maybe your PC can slow down after this number of iterations. Do you want to continue? (yes/no): " ).strip().lower()
-
-                if continueAsk == "yes" :
-                    sLeibniz = 0
-                    for i in range(n):
-                        sLeibniz += ((-1) ** i) / (2 * i + 1)
-                    
-                    pi = 4 * sLeibniz
-                    print(f"\n        {round(pi,11)}")
-                
-            
-
-            else:
-                print(f"        use a lower number of iterations")   
         
-    
-  
-    
-       
-              
+        potency = 1 
+        fraction = 0.5  
+        sum = fraction  
+
+        
+        print(f"{'        Potency:':<10} {'  Fraction:':<10}{'  Sum:':<10}")
+        print(f"        ______________________________")
+
+        print(f"        {potency:<10} {fraction:<10.6f} {sum:<10.6f}")
+
+        
+        while fraction > 0.000001:
+            potency += 1  
+            fraction = 1 / (2 ** potency)  
+            sum = 1 - fraction  
+            
+            
+            print(f"        {potency:<10} {fraction:<10.6f} {sum:<10.6f}")
         
         continueAsk = input( "\n    Do you want to calculate again? (yes/no): " ).strip().lower()
 
