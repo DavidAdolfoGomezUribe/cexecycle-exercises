@@ -1,18 +1,9 @@
-#Desarrolle un programa que permita trabajar con las potencias fraccionales de dos, es decir:
+#El número de Euler, e ≈ 2,71828, puede ser representado como la siguiente suma infinita:
 #
-#12,14,18,116,132,164,…
-#en forma decimal:
+#e=10!+11!+12!+13!+14!+…
+#Desarrolle un programa que entregue un valor aproximado de e, calculando esta suma hasta que la diferencia entre dos sumandos consecutivos sea menor que 0,0001.
 #
-#0.5,0.25,0.125,0.0625,0.03125,0.015625,…
-#El programa debe mostrar tres columnas que contengan la siguiente información:
-#
-#Potencia  Fraccion  Suma
-#1         0.5       0.5
-#2         0.25      0.75
-#3         0.125     0.875
-#4         0.0625    0.9375
-#...       ...       ...
-#El programa debe terminar cuando la fracción decimal sea menor o igual a 0.000001.
+#Recuerde que el factorial n! es el producto de los números de 1 a n.
 
 
 
@@ -31,32 +22,26 @@ name = input("    Hello, please enter your full name:  ")
 while True:
 
     print(f""" \n
-        Welcome back Mr/Ms {name}, this is a program that allows you to work with the fractional powers of two: \n""") 
+        Welcome back Mr/Ms {name}, this is a program for calculate the number of euler : \n""") 
         
 
     try :    
+        euler = 1
+        n = 1
+        diff = 1
         
-        potency = 1 
-        fraction = 0.5  
-        sum = fraction  
+        while diff > 0.0001:
+            nEuler = 1/(math.factorial(n))
+            euler += nEuler
 
-        
-        print(f"{'        Potency:':<10} {'  Fraction:':<10}{'  Sum:':<10}")
-        print(f"        ______________________________")
+            print(f"        Iteration {n}: Euler's approximation = {euler}")
+            diff = nEuler
 
-        print(f"        {potency:<10} {fraction:<10.6f} {sum:<10.6f}")
+            n += 1
 
-        
-        while fraction > 0.000001:
-            potency += 1  
-            fraction = 1 / (2 ** potency)  
-            sum = 1 - fraction  
-            
-            
-            print(f"        {potency:<10} {fraction:<10.6f} {sum:<10.6f}")
+        print("\n        Euler = ",euler)
         
         continueAsk = input( "\n    Do you want to calculate again? (yes/no): " ).strip().lower()
-
         if continueAsk != "yes" :
                 print("    Thaks for using the program. Goodbye! \n ")
                 break
